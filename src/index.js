@@ -28,7 +28,6 @@ function onChangeHandler(e) {
       })
       .catch(err => {
           Notify.failure('Oops, there is no country with that name.');
-          console.log(`Something wrong... ${err}`);
       });
   }
 }
