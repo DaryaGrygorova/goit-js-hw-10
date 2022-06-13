@@ -66,9 +66,8 @@ function createMarkupCountyList(countriesData, isSingle = false) {
 }
 
 function createMarkupCountyInfo(countriesData) {
-  ({ capital, population, languages } = countriesData[0]);
-
-    return `<p class='country-description'><span class='description-label'>Capital:</span>${capital}</p><p class='country-description'><span class='description-label'>Population:</span>${population}</p><p class='country-description'><span class='description-label'>Languages:</span>${Object.values(
-    languages
-  ).join(', ')}</p>`;
+    ({ capital, population, languages } = countriesData[0]);
+    const capitalStr = capital.join(', ')
+    const languagesStr = Object.values(languages).join(', ');
+  return `<p class='country-description'><span class='description-label'>Capital:</span>${capitalStr}</p><p class='country-description'><span class='description-label'>Population:</span>${population}</p><p class='country-description'><span class='description-label'>Languages:</span>${languagesStr}</p>`;
 }
