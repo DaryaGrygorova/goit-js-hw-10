@@ -27,7 +27,8 @@ function onChangeHandler(e) {
         renderingHtml(result);
       })
       .catch(err => {
-        Notify.failure('Oops, there is no country with that name.');
+          Notify.failure('Oops, there is no country with that name.');
+          console.log(`Something wrong... ${err}`);
       });
   }
 }
@@ -66,8 +67,8 @@ function createMarkupCountyList(countriesData, isSingle = false) {
 }
 
 function createMarkupCountyInfo(countriesData) {
-    ({ capital, population, languages } = countriesData[0]);
-    const capitalStr = capital.join(', ')
-    const languagesStr = Object.values(languages).join(', ');
+    const capitalStr = countriesData[0].capital.join(', ');
+    const population = countriesData[0].population;
+    const languagesStr = Object.values(countriesData[0].languages).join(', ');
   return `<p class='country-description'><span class='description-label'>Capital:</span>${capitalStr}</p><p class='country-description'><span class='description-label'>Population:</span>${population}</p><p class='country-description'><span class='description-label'>Languages:</span>${languagesStr}</p>`;
 }
